@@ -1,0 +1,404 @@
+
+/* GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(
+        135deg,
+        #080d1b,
+        #17243b,
+        #080d1b
+    );
+
+    color: #fff;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* STAR BACKGROUND */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+        radial-gradient(2px 2px at 70% 60%, #f5d58b, transparent),
+        radial-gradient(2px 2px at 40% 80%, #fff, transparent),
+        radial-gradient(2px 2px at 90% 20%, #f3cf83, transparent);
+
+    background-size: 200px 200px;
+
+    animation: sparkle 4s infinite alternate;
+}
+
+@keyframes sparkle {
+    from { opacity: 0.3; }
+    to { opacity: 0.9; }
+}
+
+/* WELCOME SCREEN */
+
+.welcome {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.small-title {
+    color: #e8c77d;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 22px;
+}
+
+.welcome h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.welcome h1 span {
+    display: block;
+    color: #f3cf83;
+    font-style: italic;
+    text-shadow: 0 0 25px #f3cf8355;
+}
+
+.subtitle {
+    color: #d0d0d0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* GIFT BOX */
+
+.gift-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.gift-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+}
+
+.gift-box {
+    display: block;
+    font-size: 115px;
+
+    animation: giftBounce 1.5s infinite ease-in-out;
+
+    filter: drop-shadow(0 10px 20px #f3cf8370);
+
+    transition: 0.4s;
+}
+
+.gift-button:hover .gift-box {
+    transform: scale(1.2) rotate(12deg);
+}
+
+@keyframes giftBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+.gift-label {
+    color: #f3cf83;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-top: 15px;
+}
+
+.gift-hint {
+    color: #aaa;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-top: 18px;
+}
+
+/* GALLERY */
+
+.gallery {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    color: #f3cf83;
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.photo-card {
+    width: 330px;
+    padding: 10px;
+
+    border: 1px solid #e8c77d;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff20,
+        #ffffff05
+    );
+
+    box-shadow: 0 15px 45px #0008;
+
+    transition: 0.4s;
+
+    animation: photoAppear 1s ease both;
+}
+
+.photo-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.photo-card:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 390px;
+
+    object-fit: cover;
+
+    border-radius: 13px;
+}
+
+.photo-card p {
+    color: #f3cf83;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 15px 5px 8px;
+}
+
+@keyframes photoAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BIRTHDAY MESSAGE */
+
+.birthday-message {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 45px 30px;
+
+    text-align: center;
+
+    border: 1px solid #e8c77d88;
+    border-radius: 25px;
+
+    background: #ffffff0d;
+
+    box-shadow: 0 15px 50px #0006;
+}
+
+.cake {
+    font-size: 75px;
+    margin-bottom: 15px;
+
+    animation: cakeBounce 2s infinite;
+}
+
+@keyframes cakeBounce {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.birthday-message h2 {
+    color: #f3cf83;
+    font-size: 35px;
+    margin-bottom: 22px;
+}
+
+.birthday-message p {
+    color: #eee;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.birthday-message h3 {
+    color: #f3cf83;
+    margin: 25px 0;
+    font-size: 22px;
+}
+
+.final-wish {
+    margin-top: 35px;
+    font-size: 30px !important;
+}
+
+/* BUTTON */
+
+#celebrateBtn {
+    padding: 15px 30px;
+
+    border: 1px solid #f3cf83;
+    border-radius: 35px;
+
+    background: linear-gradient(
+        120deg,
+        #f5dc9f,
+        #c18c42
+    );
+
+    color: #151515;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#celebrateBtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px #d8b15b77;
+}
+
+/* FLOATING BALLOONS */
+
+.balloon {
+    position: fixed;
+    bottom: -120px;
+    font-size: 35px;
+    pointer-events: none;
+    z-index: 0;
+
+    animation: balloonFloat linear forwards;
+}
+
+@keyframes balloonFloat {
+    to {
+        transform: translateY(-120vh) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 9px;
+    height: 14px;
+
+    pointer-events: none;
+    z-index: 1000;
+
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #c7b98e;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .welcome h1 {
+        font-size: 43px;
+    }
+
+    .gift-box {
+        font-size: 95px;
+    }
+
+    .gallery {
+        padding: 45px 15px;
+    }
+
+    .gallery h2 {
+        font-size: 29px;
+    }
+
+    .photo-card {
+        width: min(330px, 100%);
+    }
+
+    .photo-card img {
+        height: 370px;
+    }
+
+    .birthday-message {
+        margin: 30px 15px;
+        padding: 30px 18px;
+    }
+
+    .birthday-message h2 {
+        font-size: 29px;
+    }
+
+    .final-wish {
+        font-size: 25px !important;
+    }
+}
